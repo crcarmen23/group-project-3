@@ -22,7 +22,7 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="navbar-end">
+        <ul className="navbar-end mr-6">
           <li className="mx-1 navbar-item is-size-3">
             <Link to="/signup">
               Signup
