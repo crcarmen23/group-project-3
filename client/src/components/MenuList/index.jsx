@@ -11,7 +11,7 @@ import spinner from '../../assets/spinner.gif';
 function MenuList() {
   const [state, dispatch] = useStoreContext();
 
-  const { currentCategory } = state;
+  const { currentMenu } = state;
 
   const { loading, data } = useQuery(QUERY_DISHES);
 
@@ -21,8 +21,8 @@ function MenuList() {
         type: UPDATE_DISHES,
         dishes: data.dishes,
       });
-      data.dishes.forEach((product) => {
-        idbPromise('dishes', 'put', product);
+      data.dishes.forEach((dish) => {
+        idbPromise('dishes', 'put', dish);
       });
     } else if (!loading) {
       idbPromise('dishes', 'get').then((dishes) => {
@@ -35,12 +35,12 @@ function MenuList() {
   }, [data, loading, dispatch]);
 
   function filterDishes() {
-    if (!currentCategory) {
+    if (!currentMenu) {
       return state.dishes;
     }
 
     return state.dishes.filter(
-      (product) => product.category._id === currentCategory
+      (dish) => dish.menu._id === currentMenu
     );
   }
 
@@ -49,14 +49,14 @@ function MenuList() {
       <h2>Our Dishes:</h2>
       {state.dishes.length ? (
         <div className="flex-row">
-          {filterDishes().map((product) => (
+          {filterDishes().map((dish) => (
             <MenuItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
+              key={dish._id}
+              _id={dish._id}
+              image={dish.image}
+              name={dish.name}
+              price={dish.price}
+              quantity={dish.quantity}
             />
           ))}
         </div>

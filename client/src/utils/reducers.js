@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import {
   UPDATE_DISHES,
   ADD_TO_CART,
@@ -5,7 +6,7 @@ import {
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
   UPDATE_MENU_ITEMS,
-  UPDATE_CURRENT_CATEGORY,
+  UPDATE_CURRENT_MENU,
   CLEAR_CART,
   TOGGLE_CART
 } from "./actions";
@@ -73,10 +74,10 @@ export const reducer = (state, action) => {
         menuItems: [...action.menuItems],
       };
 
-    case UPDATE_CURRENT_CATEGORY:
+    case UPDATE_CURRENT_MENU:
       return {
         ...state,
-        currentCategory: action.currentCategory
+        currentMenu: action.currentMenu
       }
 
     default:
