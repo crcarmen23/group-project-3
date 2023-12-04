@@ -22,15 +22,20 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
+        <ul className="navbar-end">
+          <li className="mx-1 navbar-item is-size-3">
             <Link to="/signup">
               Signup
             </Link>
           </li>
-          <li className="mx-1">
+          <li className="mx-1 navbar-item is-size-3">
             <Link to="/login">
               Login
+            </Link>
+          </li>
+          <li className="mx-1 navbar-item is-size-3">
+            <Link to="/menu">
+              Menu
             </Link>
           </li>
         </ul>
@@ -40,14 +45,13 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-      <h1>
+      <h1 className="headerTitle ml-5">
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          La Dolce Vita
         </Link>
       </h1>
 
-      <nav>
+      <nav className="navbar-end navBar">
         {showNavigation()}
       </nav>
     </header>
