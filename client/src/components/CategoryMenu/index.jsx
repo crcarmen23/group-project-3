@@ -2,37 +2,40 @@ import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
 import {
-  UPDATE_CATEGORIES,
+  UPDATE_MENU_ITEMS,
   UPDATE_CURRENT_CATEGORY,
 } from '../../utils/actions';
-import { QUERY_CATEGORIES } from '../../utils/queries';
+import { QUERY_MENU_ITEMS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
 
-  const { categories } = state;
+  const { menuItems } = state;
 
-  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+  const { loading, data: menuData, error } = useQuery(QUERY_MENU_ITEMS);
+  if(error) {
+    console.log('ERRORRRR '+error);
+  }
 
   useEffect(() => {
-    if (categoryData) {
+    if (menuData) {
       dispatch({
-        type: UPDATE_CATEGORIES,
-        categories: categoryData.categories,
+        type: UPDATE_MENU_ITEMS,
+        menuItems: menuData.menuItems,
       });
-      categoryData.categories.forEach((category) => {
-        idbPromise('categories', 'put', category);
+      menuData.menuItems.forEach((category) => {
+        idbPromise('menuItems', 'put', category);
       });
     } else if (!loading) {
-      idbPromise('categories', 'get').then((categories) => {
+      idbPromise('menuItems', 'get').then((menuItems) => {
         dispatch({
-          type: UPDATE_CATEGORIES,
-          categories: categories,
+          type: UPDATE_MENU_ITEMS,
+          menuItems: menuItems,
         });
       });
     }
-  }, [categoryData, loading, dispatch]);
+  }, [menuData, loading, dispatch]);
 
   const handleClick = (id) => {
     dispatch({
@@ -43,8 +46,8 @@ function CategoryMenu() {
 
   return (
     <div>
-      <h2>Choose a Category:</h2>
-      {categories.map((item) => (
+      <h2>Choose a Menu Item:</h2>
+      {/* {menuItems.map((item) => (
         <button
           key={item._id}
           onClick={() => {
@@ -53,7 +56,7 @@ function CategoryMenu() {
         >
           {item.name}
         </button>
-      ))}
+      ))} */}
       <button onClick={() => { handleClick('') }}>
         All
       </button>

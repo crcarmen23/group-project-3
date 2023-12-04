@@ -1,10 +1,10 @@
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disabUPDATE_MENU_ITEMSle react/no-unescaped-entities */
 import { useEffect } from 'react';
 import MenuItem from '../MenuItem';
 import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { UPDATE_DISHES } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_DISHES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
@@ -13,43 +13,43 @@ function MenuList() {
 
   const { currentCategory } = state;
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_DISHES);
 
   useEffect(() => {
     if (data) {
       dispatch({
-        type: UPDATE_PRODUCTS,
-        products: data.products,
+        type: UPDATE_DISHES,
+        dishes: data.dishes,
       });
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+      data.dishes.forEach((product) => {
+        idbPromise('dishes', 'put', product);
       });
     } else if (!loading) {
-      idbPromise('products', 'get').then((products) => {
+      idbPromise('dishes', 'get').then((dishes) => {
         dispatch({
-          type: UPDATE_PRODUCTS,
-          products: products,
+          type: UPDATE_DISHES,
+          dishes: dishes,
         });
       });
     }
   }, [data, loading, dispatch]);
 
-  function filterProducts() {
+  function filterDishes() {
     if (!currentCategory) {
-      return state.products;
+      return state.dishes;
     }
 
-    return state.products.filter(
+    return state.dishes.filter(
       (product) => product.category._id === currentCategory
     );
   }
 
   return (
     <div className="my-2">
-      <h2>Our Products:</h2>
-      {state.products.length ? (
+      <h2>Our Dishes:</h2>
+      {state.dishes.length ? (
         <div className="flex-row">
-          {filterProducts().map((product) => (
+          {filterDishes().map((product) => (
             <MenuItem
               key={product._id}
               _id={product._id}
