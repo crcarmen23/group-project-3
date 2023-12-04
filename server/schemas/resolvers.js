@@ -11,9 +11,9 @@ const resolvers = {
     dishes: async (parent, { menu, name }) => {
       const params = {};
 
-      /* if (category) {
-        params.category = category;
-      } */
+      if (menu) {
+        params.menu = menu;
+      }
 
       if (name) {
         params.name = {
@@ -29,10 +29,10 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id)
-        /* .populate({
+        .populate({
           path: 'orders.dishes',
-          populate: 'category' 
-        });*/
+          populate: 'menu' 
+        });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -44,10 +44,10 @@ const resolvers = {
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id)
-        /* .populate({
+        .populate({
           path: 'orders.dishes',
-          populate: 'category'
-        }); */
+          populate: 'menu'
+        });
 
         return user.orders.id(_id);
       }
@@ -65,7 +65,7 @@ const resolvers = {
         line_items.push({
           price_data: {
             currency: 'usd',
-            product_data: {
+            dish_data: {
               name: dish.name,
               description: dish.description,
               images: [`${url}/images/${dish.image}`]

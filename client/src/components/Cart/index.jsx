@@ -53,7 +53,7 @@ const Cart = () => {
   }
 
   // When the submit checkout method is invoked, loop through each item in the cart
-  // Add each item id to the productIds array and then invoke the getCheckout query passing an object containing the id for all our dishes
+  // Add each item id to the dishIds array and then invoke the getCheckout query passing an object containing the id for all our dishes
   function submitCheckout() {
 
     getCheckout({
