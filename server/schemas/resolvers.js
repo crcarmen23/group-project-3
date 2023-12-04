@@ -1,18 +1,18 @@
-const { User, Product, Category, Order } = require('../models');
+const { User, Dish, Menu, Order } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-    categories: async () => {
-      return await Category.find();
+    menuItems: async () => {
+      return await Menu.find();
     },
-    products: async (parent, { category, name }) => {
+    dishes: async (parent, { menu, name }) => {
       const params = {};
 
-      if (category) {
+      /* if (category) {
         params.category = category;
-      }
+      } */
 
       if (name) {
         params.name = {
@@ -20,17 +20,18 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate('category');
+      return await Dish.find(params);
     },
-    product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+    dish: async (parent, { _id }) => {
+      return await Dish.findById(_id);
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
-        });
+        const user = await User.findById(context.user._id)
+        /* .populate({
+          path: 'orders.dishes',
+          populate: 'category' 
+        });*/
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -41,10 +42,11 @@ const resolvers = {
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
+        const user = await User.findById(context.user._id)
+        /* .populate({
+          path: 'orders.dishes',
           populate: 'category'
-        });
+        }); */
 
         return user.orders.id(_id);
       }
@@ -53,23 +55,23 @@ const resolvers = {
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
-      await Order.create({ products: args.products.map(({ _id }) => _id) });
+      await Order.create({ dishes: args.dishes.map(({ _id }) => _id) });
       // eslint-disable-next-line camelcase
       const line_items = [];
 
       // eslint-disable-next-line no-restricted-syntax
-      for (const product of args.products) {
+      for (const dish of args.dishes) {
         line_items.push({
           price_data: {
             currency: 'usd',
             product_data: {
-              name: product.name,
-              description: product.description,
-              images: [`${url}/images/${product.image}`]
+              name: dish.name,
+              description: dish.description,
+              images: [`${url}/images/${dish.image}`]
             },
-            unit_amount: product.price * 100,
+            unit_amount: dish.price * 100,
           },
-          quantity: product.purchaseQuantity,
+          quantity: dish.purchaseQuantity,
         });
       }
 
@@ -91,9 +93,9 @@ const resolvers = {
 
       return { token, user };
     },
-    addOrder: async (parent, { products }, context) => {
+    addOrder: async (parent, { dishes }, context) => {
       if (context.user) {
-        const order = new Order({ products });
+        const order = new Order({ dishes });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
@@ -109,10 +111,10 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    updateProduct: async (parent, { _id, quantity }) => {
+    updateDish: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      return await Dish.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
