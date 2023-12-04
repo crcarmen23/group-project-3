@@ -1,10 +1,10 @@
 import {
-  UPDATE_PRODUCTS,
+  UPDATE_DISHES,
   ADD_TO_CART,
   UPDATE_CART_QUANTITY,
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
-  UPDATE_CATEGORIES,
+  UPDATE_MENU_ITEMS,
   UPDATE_CURRENT_CATEGORY,
   CLEAR_CART,
   TOGGLE_CART
@@ -12,40 +12,40 @@ import {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case UPDATE_PRODUCTS:
+    case UPDATE_DISHES:
       return {
         ...state,
-        products: [...action.products],
+        dishes: [...action.dishes],
       };
 
     case ADD_TO_CART:
       return {
         ...state,
         cartOpen: true,
-        cart: [...state.cart, action.product],
+        cart: [...state.cart, action.dish],
       };
 
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, ...action.products],
+        cart: [...state.cart, ...action.dishes],
       };
 
     case UPDATE_CART_QUANTITY:
       return {
         ...state,
         cartOpen: true,
-        cart: state.cart.map(product => {
-          if (action._id === product._id) {
-            product.purchaseQuantity = action.purchaseQuantity
+        cart: state.cart.map(dish => {
+          if (action._id === dish._id) {
+            dish.purchaseQuantity = action.purchaseQuantity
           }
-          return product
+          return dish
         })
       };
 
     case REMOVE_FROM_CART:
-      let newState = state.cart.filter(product => {
-        return product._id !== action._id;
+      let newState = state.cart.filter(dish => {
+        return dish._id !== action._id;
       });
 
       return {
@@ -67,10 +67,10 @@ export const reducer = (state, action) => {
         cartOpen: !state.cartOpen
       };
 
-    case UPDATE_CATEGORIES:
+    case UPDATE_MENU_ITEMS:
       return {
         ...state,
-        categories: [...action.categories],
+        menuItems: [...action.menuItems],
       };
 
     case UPDATE_CURRENT_CATEGORY:
