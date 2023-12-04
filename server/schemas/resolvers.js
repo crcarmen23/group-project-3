@@ -1,6 +1,7 @@
 const { User, Product, Category, Order } = require('../models');
+require("dotenv").config()
 const { signToken, AuthenticationError } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 const resolvers = {
   Query: {
