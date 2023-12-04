@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import {
   UPDATE_DISHES,
   ADD_TO_CART,
