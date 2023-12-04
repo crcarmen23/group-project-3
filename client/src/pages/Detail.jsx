@@ -18,7 +18,7 @@ function Detail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
-  const [currentProduct, setCurrentProduct] = useState({});
+  const [currentDish, setCurrentDish] = useState({});
 
   const { loading, data } = useQuery(QUERY_DISHES);
 
@@ -27,7 +27,7 @@ function Detail() {
   useEffect(() => {
     // already in global store
     if (dishes.length) {
-      setCurrentProduct(dishes.find((product) => product._id === id));
+      setCurrentDish(dishes.find((dish) => dish._id === id));
     }
     // retrieved from server
     else if (data) {
@@ -36,8 +36,8 @@ function Detail() {
         dishes: data.dishes,
       });
 
-      data.dishes.forEach((product) => {
-        idbPromise('dishes', 'put', product);
+      data.dishes.forEach((dish) => {
+        idbPromise('dishes', 'put', dish);
       });
     }
     // get cache from idb
@@ -66,36 +66,36 @@ function Detail() {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...currentProduct, purchaseQuantity: 1 },
+        dish: { ...currentDish, purchaseQuantity: 1 },
       });
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { ...currentDish, purchaseQuantity: 1 });
     }
   };
 
   const removeFromCart = () => {
     dispatch({
       type: REMOVE_FROM_CART,
-      _id: currentProduct._id,
+      _id: currentDish._id,
     });
 
-    idbPromise('cart', 'delete', { ...currentProduct });
+    idbPromise('cart', 'delete', { ...currentDish });
   };
 
   return (
     <>
-      {currentProduct && cart ? (
+      {currentDish && cart ? (
         <div className="container my-1">
           <Link to="/">← Back to Dishes</Link>
 
-          <h2>{currentProduct.name}</h2>
+          <h2>{currentDish.name}</h2>
 
-          <p>{currentProduct.description}</p>
+          <p>{currentDish.description}</p>
 
           <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
+            <strong>Price:</strong>${currentDish.price}{' '}
             <button onClick={addToCart}>Add to Cart</button>
             <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
+              disabled={!cart.find((p) => p._id === currentDish._id)}
               onClick={removeFromCart}
             >
               Remove from Cart
@@ -103,8 +103,8 @@ function Detail() {
           </p>
 
           <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
+            src={`/images/${currentDish.image}`}
+            alt={currentDish.name}
           />
         </div>
       ) : null}

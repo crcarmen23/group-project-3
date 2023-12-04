@@ -32,7 +32,7 @@ export const QUERY_ALL_DISHES = gql`
       description
       price
       recommend
-      category {
+      menu {
         name
       }
     }
