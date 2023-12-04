@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
 import {
   UPDATE_MENU_ITEMS,
-  UPDATE_CURRENT_CATEGORY,
+  UPDATE_CURRENT_MENU,
 } from '../../utils/actions';
 import { QUERY_MENU_ITEMS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
@@ -24,8 +24,8 @@ function CategoryMenu() {
         type: UPDATE_MENU_ITEMS,
         menuItems: menuData.menuItems,
       });
-      menuData.menuItems.forEach((category) => {
-        idbPromise('menuItems', 'put', category);
+      menuData.menuItems.forEach((menu) => {
+        idbPromise('menuItems', 'put', menu);
       });
     } else if (!loading) {
       idbPromise('menuItems', 'get').then((menuItems) => {
@@ -39,15 +39,15 @@ function CategoryMenu() {
 
   const handleClick = (id) => {
     dispatch({
-      type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
+      type: UPDATE_CURRENT_MENU,
+      currentMenu: id,
     });
   };
 
   return (
     <div>
       <h2>Choose a Menu Item:</h2>
-      {/* {menuItems.map((item) => (
+      {menuItems.map((item) => (
         <button
           key={item._id}
           onClick={() => {
@@ -56,7 +56,7 @@ function CategoryMenu() {
         >
           {item.name}
         </button>
-      ))} */}
+      ))}
       <button onClick={() => { handleClick('') }}>
         All
       </button>
