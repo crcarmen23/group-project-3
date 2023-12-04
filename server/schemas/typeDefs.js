@@ -1,29 +1,28 @@
 const typeDefs = `
-  type Category {
+  type Menu {
     _id: ID
     name: String
   }
 
-  type Product {
+  type Dish {
     _id: ID
     name: String
     description: String
     image: String
-    quantity: Int
+    recommend: Boolean
     price: Float
-    category: Category
+    menu: Menu
   }
 
   type Order {
     _id: ID
     purchaseDate: String
-    products: [Product]
+    dishes: [Dish]
   }
 
   type User {
     _id: ID
-    firstName: String
-    lastName: String
+    userName: String
     email: String
     orders: [Order]
   }
@@ -37,7 +36,7 @@ const typeDefs = `
     user: User
   }
 
-  input ProductInput {
+  input DishInput {
     _id: ID
     purchaseQuantity: Int
     name: String
@@ -47,19 +46,19 @@ const typeDefs = `
   }
 
   type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
+    menuItems: [Menu]
+    dishes(menu: ID, name: String): [Dish]
+    dish(_id: ID!): Dish
     user: User
     order(_id: ID!): Order
-    checkout(products: [ProductInput]): Checkout
+    checkout(dishes: [DishInput]): Checkout
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
+    addUser(userName: String!, email: String!, password: String!): Auth
+    addOrder(dishes: [ID]!): Order
+    updateUser(userName: String, email: String, password: String): User
+    updateDish(_id: ID!, quantity: Int!): Dish
     login(email: String!, password: String!): Auth
   }
 `;
