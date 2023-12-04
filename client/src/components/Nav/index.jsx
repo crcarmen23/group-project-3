@@ -33,7 +33,7 @@ function Nav() {
               Login
             </Link>
           </li>
-          <li className="mx-1 navbar-item is-size-3">
+          <li className="mx-1 navbar-item is-size-3 pr-5">
             <Link to="/menu">
               Menu
             </Link>
