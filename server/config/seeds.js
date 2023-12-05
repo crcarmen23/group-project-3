@@ -25,7 +25,7 @@ db.once('open', async () => {
       image: 'marinated-olives.jpg',
       menu: menuItems[0]._id,
       price: 7.99,
-      recommend: false
+      recommend: true
     },
     {
       name: 'Flatbread Pizza',
@@ -79,7 +79,7 @@ db.once('open', async () => {
         'A classic Italian comfort dish featuring al dente spaghetti smothered in rich tomato sauce, topped with perfectly seasoned meatballs, delivering a hearty and satisfying taste of tradition.',
       image: 'spaghetti.jpg',
       price: 21.99,
-      recommend: false
+      recommend: true
     },
     {
       name: 'Penne Alla Vodka',
@@ -114,7 +114,7 @@ db.once('open', async () => {
         'A vibrant blend of crisp greens, juicy tomatoes, cucumber, Kalamata olives, and feta cheese, drizzled with a lemon-oregano vinaigrette.',
       image: 'med-salad.jpg',
       price: 17.99,
-      recommend: false
+      recommend: true
     },
     {
       name: 'Summer Zucchini Pasta',
@@ -177,7 +177,7 @@ db.once('open', async () => {
         'Pan di spagna tenero, caffè ricco, ripieno dolce e cremoso e tanto cioccolato! Oh, ed è anche popolare aggiungere alcolici!',
       image: 'tiramisu.jpg',
       price: 9.99,
-      recommend: false
+      recommend: true
     },
     {
       name: 'Cannoli',
@@ -231,7 +231,7 @@ db.once('open', async () => {
         'Gli avocado ripieni caprese semplici e freschi sono una svolta sui sapori classici. Questo è un antipasto o un contorno perfetto per qualsiasi pasto!',
       image: 'caprese.jpg',
       price: 9.99,
-      recommend: false
+      recommend: true
     },
     {
       name: 'Zucchini Chips ',
