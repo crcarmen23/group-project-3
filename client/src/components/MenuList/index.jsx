@@ -55,7 +55,7 @@ function MenuList(props) {
 
   return (
     <div className="my-2">
-      <h2>Our Dishes:</h2>
+      {!props.recommended ? <h2>Our Dishes:</h2> : ""}
       {state.dishes.length ? (
         <div className="flex-row">
           {filterDishes().map((dish) => (

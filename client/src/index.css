@@ -1,7 +1,7 @@
 
 :root {
   --primary: #8d1a1a;
-  --secondary: #287c4c;
+  --secondary: #1f623c;
   --tertiary: #B12704;
   --light: #fafafa;
   --dark: #272f32;
@@ -225,7 +225,7 @@ input:focus {
 }
 
 .hero {
-  background-image: url("../public/images/hero.jpg");
+  background-image: url("../images/hero.jpg");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -265,5 +265,9 @@ input:focus {
   }
 
   footer {
-    background-color: #8d1a1a !important;
+    background-color: var(--secondary) !important;
+  }
+
+  .recommended {
+    font-family: 'Italianno', cursive !important;
   }
