@@ -11,7 +11,8 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
-const stripePromise = loadStripe('pk_test_51OJeyqGMh5cRs8h0bD1RND5BVM7M6zdkRRlO4phFNZvLmxrzkPjqSybJW66pROYMe60oO1bTdBeMxRs7iXnvEdZb00OhvyRl1G');
+
+const stripePromise = loadStripe('pk_test_51OJevYJlq2w2yV3KDC91sgpY2TtPdzjs4PcjlCUAFuXfe7aSg4QbsYAbobEjrGKNgnimWXsMnZEufTEEEtvxeyZM003VVtfHvY');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -23,6 +24,9 @@ const Cart = () => {
     if (data) {
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
+      })
+      .catch((error) => {
+        console.error("Error redirecting to Stripe checkout:", error);
       });
     }
   }, [data]);
@@ -55,14 +59,24 @@ const Cart = () => {
   // When the submit checkout method is invoked, loop through each item in the cart
   // Add each item id to the dishIds array and then invoke the getCheckout query passing an object containing the id for all our dishes
   function submitCheckout() {
-
-    getCheckout({
-      variables: { 
-        dishes: [...state.cart],
-      },
-    });
+    try {
+      const dishInput = state.cart.map(({ _id, name, price, purchaseQuantity }) => ({
+        _id,
+        name,
+        price,
+        purchaseQuantity
+      }));
+  
+      getCheckout({
+        variables: { 
+          dishes: dishInput,
+        },
+      });
+    } catch (error) {
+      console.error("Error submitting checkout:", error);
+    }
   }
-
+  
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
