@@ -37,38 +37,27 @@ function CategoryMenu() {
     }
   }, [menuData, loading, dispatch]);
 
-  const handleClick = (id) => {
+  const handleClick = (categoryName) => {
     dispatch({
       type: UPDATE_CURRENT_MENU,
-      currentMenu: id,
+      currentMenu: categoryName,
     });
   };
+
+  const uniqueCategories = Array.from(new Set(menuItems.map(item => item.name)));
+
 
   return (
     <div>
       <h2>Choose a Menu Item:</h2>
-      {menuItems.map((item) => (
+      {uniqueCategories.map((category) => (
         <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
+          key={category._id}
+          onClick={() => handleClick(category._id)}
         >
-          {item.name}
+          {category}
         </button>
       ))}
-      <button onClick={() => { handleClick('') }}>
-        Appetizers
-      </button>
-      <button onClick={() => { handleClick('') }}>
-        Vegetarian
-      </button>
-      <button onClick={() => { handleClick('') }}>
-        Entrees'
-      </button>
-      <button onClick={() => { handleClick('') }}>
-        Desserts
-      </button>
     </div>
   );
 }
