@@ -25,7 +25,7 @@ db.once('open', async () => {
       image: 'marinated-olives.jpg',
       menu: menuItems[0]._id,
       price: 7.99,
-      recommend: false
+      recommend: true
     },
     {
       name: 'Flatbread Mini Pizzas',
@@ -79,7 +79,7 @@ db.once('open', async () => {
         'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
       image: 'spaghetti.jpg',
       price: 21.99,
-      recommend: false
+      recommend: true
     },
     {
       name: 'Penne Alla Vodka',

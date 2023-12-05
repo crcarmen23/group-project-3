@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import MenuList from "../components/MenuList";
 
 
 const Home = () => {
@@ -11,7 +12,13 @@ const Home = () => {
                 <br />
                 <a href="/login" className="heroButton button is-size-5 has-text-centered mr-3">Login</a>
                 <a href="/signup" className="heroButton button is-size-5 has-text-centered ml-3 mb-5">Signup</a>
+                
                 <p className="has-text-centered mt-5 is-size-1">Dishes of the week:</p>
+                
+                <section className="container-fluid">
+                    <MenuList recommended = { true }/>
+                    
+                </section>
             </div>
         </div>
     );

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disabUPDATE_MENU_ITEMSle react/no-unescaped-entities */
 import { useEffect } from 'react';
 import MenuItem from '../MenuItem';
@@ -8,7 +9,8 @@ import { QUERY_DISHES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-function MenuList() {
+function MenuList(props) {
+  console.log(props);
   const [state, dispatch] = useStoreContext();
 
   const { currentMenu } = state;
@@ -35,10 +37,17 @@ function MenuList() {
   }, [data, loading, dispatch]);
 
   function filterDishes() {
+    if(props.recommended) {
+      return state.dishes.filter(
+        (dish) => dish.recommend === true
+      );
+    }
+
     if (!currentMenu) {
       return state.dishes;
     }
-
+    
+    
     return state.dishes.filter(
       (dish) => dish.menu._id === currentMenu
     );
@@ -56,7 +65,7 @@ function MenuList() {
               image={dish.image}
               name={dish.name}
               price={dish.price}
-              quantity={dish.quantity}
+              recommend={dish.recommend}
             />
           ))}
         </div>
