@@ -21,26 +21,26 @@ db.once('open', async () => {
     {
       name: 'Marinated Olives',
       description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+        'A Mediterranean fusion of Kalamata and green olives immersed in a zesty blend of herbs, citrus, and garlic.',
       image: 'marinated-olives.jpg',
       menu: menuItems[0]._id,
       price: 7.99,
       recommend: false
     },
     {
-      name: 'Flatbread Mini Pizzas',
+      name: 'Flatbread Pizza',
       description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'flatbread-pizzas.jpg',
+        'A delightful fusion of crisp flatbread topped with savory tomato sauce and diced tomatoes, melted cheese, fresh basil, and topped with a balsamic glaze drizzle.',
+      image: 'flatbread-pizza.jpg',
       menu: menuItems[0]._id,
-      price: 12.99,
+      price: 15.99,
       recommend: false
     },
     {
       name: 'Antipasto Skewers',
       menu: menuItems[0]._id,
       description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
+        'A selection of cured meats, fresh mozzarella, olives, and veggies, skillfully threaded for a flavorful appetizer experience.',
       image: 'antipasto-skewers.jpg',
       price: 8.99,
       recommend: false
@@ -49,7 +49,7 @@ db.once('open', async () => {
       name: 'Ultimate Cheese Board',
       menu: menuItems[0]._id,
       description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
+        'A curated selection of artisanal cheeses, paired with complementary nuts, fruits, and crackers.',
       image: 'cheese-board.jpg',
       price: 19.99,
       recommend: false
@@ -58,25 +58,25 @@ db.once('open', async () => {
       name: 'Stuffed Mushrooms',
       menu: menuItems[0]._id,
       description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
+        'Plump mushrooms filled with a savory mixture of Italian herbs, garlic, breadcrumbs, and melted cheese.',
       image: 'stuffed-mushrooms.jpg',
-      price: 7.99,
+      price: 8.99,
       recommend: false
     },
     {
       name: 'Marinated Steak',
       menu: menuItems[1]._id,
       description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
+        'A succulent cut of premium beef soaked in a flavorful blend of herbs, garlic, and spices, grilled to perfection.',
       image: 'marinated-steak.jpg',
       price: 29.99,
       recommend: false
     },
     {
-      name: 'Spaghetti',
+      name: 'Spaghetti and Meatballs',
       menu: menuItems[1]._id,
       description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
+        'A classic Italian comfort dish featuring al dente spaghetti smothered in rich tomato sauce, topped with perfectly seasoned meatballs, delivering a hearty and satisfying taste of tradition.',
       image: 'spaghetti.jpg',
       price: 21.99,
       recommend: false
@@ -85,34 +85,34 @@ db.once('open', async () => {
       name: 'Penne Alla Vodka',
       menu: menuItems[1]._id,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'pasta.jpg',
-      price: 19.99,
+        'A creamy and indulgent pasta dish where al dente penne is bathed in a luscious vodka-infused tomato cream sauce, creating a delightful harmony of richness and warmth.',
+      image: 'penne-vodka.jpg',
+      price: 21.99,
       recommend: false
     },
     {
       name: 'Chicken Parmesan',
       menu: menuItems[1]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
-      price: 19.99,
+      description: 'Tender chicken cutlets coated in crispy breadcrumbs, topped with marinara sauce, melted mozzarella, and Parmesan cheese, baked to golden perfection for a mouthwatering Italian favorite.',
+      image: 'chicken-parmesan.jpg',
+      price: 26.99,
       recommend: false
     },
     {
       name: 'Carbonara',
       menu: menuItems[1]._id,
       description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
-      price: 22.99,
+        'Perfectly cooked spaghetti tossed in a velvety sauce of eggs, Parmesan cheese, crispy pancetta, and black pepper.',
+      image: 'carbonara.jpg',
+      price: 21.99,
       recommend: false
     },
     {
       name: 'Mediterranean Salad',
       menu: menuItems[2]._id,
       description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
+        'A vibrant blend of crisp greens, juicy tomatoes, cucumber, Kalamata olives, and feta cheese, drizzled with a lemon-oregano vinaigrette.',
+      image: 'med-salad.jpg',
       price: 17.99,
       recommend: false
     },
@@ -120,9 +120,9 @@ db.once('open', async () => {
       name: 'Summer Zucchini Pasta',
       menu: menuItems[2]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 19.99,
+        'A light and refreshing dish featuring spiralized zucchini noodles tossed with cherry tomatoes, basil, garlic, and a hint of lemon.',
+      image: 'zucchini-pasta.jpg',
+      price: 21.99,
       recommend: false
     },
     {
@@ -193,7 +193,7 @@ db.once('open', async () => {
       menu: menuItems[3]._id,
       description:
         'Queste ciambelle italiane sono leggere, soffici e si sciolgono in bocca.',
-      image: 'alphabet-blocks.jpg',
+      image: 'zeppole.jpg',
       price: 9.99,
       recommend: false
     },
