@@ -130,7 +130,7 @@ db.once('open', async () => {
       menu: menuItems[2]._id,
       description:
         'Ecco un delizioso finger food a base di tenere melanzane e condito con una gustosa salsa di pomodoro e formaggio fuso.',
-      image: 'alphabet-blocks.jpg',
+      image: 'eggplant.jpg',
       price: 19.99,
       recommend: false
     },
@@ -139,7 +139,7 @@ db.once('open', async () => {
       menu: menuItems[2]._id,
       description:
         'Le frittelle di zucchine sono ricche di sapore e sono un ottimo pasto vegetariano per tutta la famiglia.',
-      image: 'alphabet-blocks.jpg',
+      image: 'fritter.jpg',
       price: 15.99,
       recommend: false
     },
@@ -148,7 +148,7 @@ db.once('open', async () => {
       menu: menuItems[2]._id,
       description:
         'Un piatto delizioso con riso, verdure fresche e un condimento delizioso.',
-      image: 'alphabet-blocks.jpg',
+      image: 'rice-salad.jpg',
       price: 15.99,
       recommend: false
     },
@@ -157,7 +157,7 @@ db.once('open', async () => {
       menu: menuItems[3]._id,
       description:
         'Un incrocio tra biscotti di pasta frolla e di zucchero, sono perfetti per ogni occasione.',
-      image: 'alphabet-blocks.jpg',
+      image: 'butter-cookie.jpg',
       price: 9.99,
       recommend: false
     },
@@ -166,7 +166,7 @@ db.once('open', async () => {
       menu: menuItems[3]._id,
       description:
         'Limone e ricotta sono un abbinamento perfetto per le torte: piccante, cremoso, piccante e perfetto con alcune mandorle tostate.',
-      image: 'alphabet-blocks.jpg',
+      image: 'riccota.jpg',
       price: 9.99,
       recommend: false
     },
@@ -175,7 +175,7 @@ db.once('open', async () => {
       menu: menuItems[3]._id,
       description:
         'Pan di spagna tenero, caffè ricco, ripieno dolce e cremoso e tanto cioccolato! Oh, ed è anche popolare aggiungere alcolici!',
-      image: 'alphabet-blocks.jpg',
+      image: 'tiramisu.jpg',
       price: 9.99,
       recommend: false
     },
@@ -184,7 +184,7 @@ db.once('open', async () => {
       menu: menuItems[3]._id,
       description:
         'Un rotolo di pasta fritta con un dolce ripieno cremoso.',
-      image: 'alphabet-blocks.jpg',
+      image: 'cannoli.jpg',
       price: 9.99,
       recommend: false
     },
@@ -202,7 +202,7 @@ db.once('open', async () => {
       menu: menuItems[4]._id,
       description:
         'Spolverate con sale, pepe e un po di parmigiano',
-      image: 'alphabet-blocks.jpg',
+      image: 'asparagus.jpg',
       price: 5.99,
       recommend: false
     },
@@ -211,7 +211,7 @@ db.once('open', async () => {
       menu: menuItems[4]._id,
       description:
         'I cavoletti di Bruxelles arrostiti al forno hanno un esterno perfettamente croccante e un centro che si scioglie in bocca.',
-      image: 'alphabet-blocks.jpg',
+      image: 'brussell.jpg',
       price: 5.99,
       recommend: false
     },
@@ -220,7 +220,7 @@ db.once('open', async () => {
       menu: menuItems[4]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
+      image: 'garlic-knots.jpg',
       price: 4.99,
       recommend: false
     },
@@ -229,7 +229,7 @@ db.once('open', async () => {
       menu: menuItems[4]._id,
       description:
         'Gli avocado ripieni caprese semplici e freschi sono una svolta sui sapori classici. Questo è un antipasto o un contorno perfetto per qualsiasi pasto!',
-      image: 'alphabet-blocks.jpg',
+      image: 'caprese.jpg',
       price: 9.99,
       recommend: false
     },
@@ -238,7 +238,7 @@ db.once('open', async () => {
       menu: menuItems[4]._id,
       description:
         'Tagliate di zucchine cotte al punto giusto con una crosta di parmigiano e pangrattato.',
-      image: 'alphabet-blocks.jpg',
+      image: 'chips.jpg',
       price: 5.99,
       recommend: false
     },
