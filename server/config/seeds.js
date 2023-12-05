@@ -126,37 +126,37 @@ db.once('open', async () => {
       recommend: false
     },
     {
-      name: 'Vegan',
+      name: 'Egg Plant Pizza',
       menu: menuItems[2]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Ecco un delizioso finger food a base di tenere melanzane e condito con una gustosa salsa di pomodoro e formaggio fuso.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
     },
     {
-      name: 'Veggie',
+      name: 'Zucchinni Fritters',
       menu: menuItems[2]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Le frittelle di zucchine sono ricche di sapore e sono un ottimo pasto vegetariano per tutta la famiglia.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
     },
     {
-      name: 'Salad',
+      name: 'Rice Salad',
       menu: menuItems[2]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Un piatto delizioso con riso, verdure fresche e un condimento delizioso.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
     },
     {
-      name: 'Dessert1',
+      name: 'Italian Butter Cookies',
       menu: menuItems[3]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Un incrocio tra biscotti di pasta frolla e di zucchero, sono perfetti per ogni occasione.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
