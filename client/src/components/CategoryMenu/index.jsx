@@ -10,13 +10,14 @@ import { idbPromise } from '../../utils/helpers';
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
-
   const { menuItems } = state;
-
   const { loading, data: menuData, error } = useQuery(QUERY_MENU_ITEMS);
   if(error) {
     console.log('ERRORRRR '+error);
   }
+
+  console.log(menuData)
+
 
   useEffect(() => {
     if (menuData) {
@@ -37,25 +38,26 @@ function CategoryMenu() {
     }
   }, [menuData, loading, dispatch]);
 
-  const handleClick = (categoryName) => {
+  const handleClick = (categoryId) => {
     dispatch({
       type: UPDATE_CURRENT_MENU,
-      currentMenu: categoryName,
+      currentMenu: categoryId,
     });
-  };
+  }
 
-  const uniqueCategories = Array.from(new Set(menuItems.map(item => item.name)));
+  console.log(menuItems)
+
 
 
   return (
     <div>
       <h2>Choose a Menu Item:</h2>
-      {uniqueCategories.map((category) => (
-        <button
-          key={category._id}
-          onClick={() => handleClick(category._id)}
-        >
-          {category}
+      {menuItems.map((category) => (
+
+        <button key={category._id}onClick={() => handleClick(category._id)}>
+
+          {category.name}
+          
         </button>
       ))}
     </div>

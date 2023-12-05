@@ -3,7 +3,7 @@ const { User, Dish, Menu } = require('../models');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
-  await cleanDB('Menu', 'menuItems');
+  await cleanDB('Menu', 'menus');
   await cleanDB('Dish', 'dishes');
   await cleanDB('User', 'users');
 
