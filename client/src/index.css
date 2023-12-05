@@ -20,6 +20,10 @@
   justify-content: end;
 }
 
+.cart-emoji {
+  padding-left: 4px;
+}
+
 html,
 body {
   min-height: 100%;
