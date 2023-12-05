@@ -10,13 +10,14 @@ import { idbPromise } from '../../utils/helpers';
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
-
   const { menuItems } = state;
-
   const { loading, data: menuData, error } = useQuery(QUERY_MENU_ITEMS);
   if(error) {
     console.log('ERRORRRR '+error);
   }
+
+  console.log(menuData)
+
 
   useEffect(() => {
     if (menuData) {
@@ -37,38 +38,28 @@ function CategoryMenu() {
     }
   }, [menuData, loading, dispatch]);
 
-  const handleClick = (id) => {
+  const handleClick = (categoryId) => {
     dispatch({
       type: UPDATE_CURRENT_MENU,
-      currentMenu: id,
+      currentMenu: categoryId,
     });
-  };
+  }
+
+  console.log(menuItems)
+
+
 
   return (
     <div>
       <h2>Choose a Menu Item:</h2>
-      {menuItems.map((item) => (
-        <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
+      {menuItems.map((category) => (
+
+        <button key={category._id}onClick={() => handleClick(category._id)}>
+
+          {category.name}
+          
         </button>
       ))}
-      <button onClick={() => { handleClick('') }}>
-        Appetizers
-      </button>
-      <button onClick={() => { handleClick('') }}>
-        Vegetarian
-      </button>
-      <button onClick={() => { handleClick('') }}>
-        Entrees'
-      </button>
-      <button onClick={() => { handleClick('') }}>
-        Desserts
-      </button>
     </div>
   );
 }
