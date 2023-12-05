@@ -162,43 +162,61 @@ db.once('open', async () => {
       recommend: false
     },
     {
-      name: 'Dessert2',
+      name: 'Lemon Riccota Cake With Almonds',
       menu: menuItems[3]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Limone e ricotta sono un abbinamento perfetto per le torte: piccante, cremoso, piccante e perfetto con alcune mandorle tostate.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
     },
     {
-      name: 'Dessert3',
+      name: 'Tiramisu',
       menu: menuItems[3]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Pan di spagna tenero, caffè ricco, ripieno dolce e cremoso e tanto cioccolato! Oh, ed è anche popolare aggiungere alcolici!',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
     },
     {
-      name: 'Dessert4',
+      name: 'Cannoli',
       menu: menuItems[3]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Un rotolo di pasta fritta con un dolce ripieno cremoso.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
     },
     {
-      name: 'Dessert5',
+      name: 'Zeppole',
       menu: menuItems[3]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Queste ciambelle italiane sono leggere, soffici e si sciolgono in bocca.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
     },
     {
-      name: 'Sides1',
+      name: 'Grilled Asparagus',
+      menu: menuItems[4]._id,
+      description:
+        'Spolverate con sale, pepe e un po di parmigiano',
+      image: 'alphabet-blocks.jpg',
+      price: 9.99,
+      recommend: false
+    },
+    {
+      name: 'Roasted Brussell Sprouts',
+      menu: menuItems[4]._id,
+      description:
+        'I cavoletti di Bruxelles arrostiti al forno hanno un esterno perfettamente croccante e un centro che si scioglie in bocca.',
+      image: 'alphabet-blocks.jpg',
+      price: 9.99,
+      recommend: false
+    },
+    {
+      name: 'Garlic Knots',
       menu: menuItems[4]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
@@ -207,37 +225,19 @@ db.once('open', async () => {
       recommend: false
     },
     {
-      name: 'Sides2',
+      name: 'Caprese Stuffed Avocados',
       menu: menuItems[4]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Gli avocado ripieni caprese semplici e freschi sono una svolta sui sapori classici. Questo è un antipasto o un contorno perfetto per qualsiasi pasto!',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
     },
     {
-      name: 'Sides3',
+      name: 'Zucchini Chips ',
       menu: menuItems[4]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      recommend: false
-    },
-    {
-      name: 'Sides4',
-      menu: menuItems[4]._id,
-      description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      recommend: false
-    },
-    {
-      name: 'Sides5',
-      menu: menuItems[4]._id,
-      description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Tagliate di zucchine cotte al punto giusto con una crosta di parmigiano e pangrattato.',
       image: 'alphabet-blocks.jpg',
       price: 9.99,
       recommend: false
