@@ -10,6 +10,7 @@ function Signup(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    try{
     const mutationResponse = await addUser({
       variables: {
         email: formState.email,
@@ -19,6 +20,13 @@ function Signup(props) {
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
+   // Set the success message after successful signup
+    setSuccessMessage('You have successfully created this account.');
+    } catch (error) {
+      // Handle errors if signup fails
+      console.error('Error signing up:', error);
+      // Optionally, set an error message state for user feedback
+    }
   };
 
   const handleChange = (event) => {
