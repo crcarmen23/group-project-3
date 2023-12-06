@@ -39,7 +39,7 @@ After successfully placing the order, you should receive an order confirmation o
 [Link to Deployed Site](https://la-dolce-vita-257152a676c7.herokuapp.com/)
 
 
-![screenshot]()
+![screenshot](./client/public/images/ladolce.png)
 
 
 ## Credits
