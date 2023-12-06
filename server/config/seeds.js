@@ -231,7 +231,7 @@ db.once('open', async () => {
         'Gli avocado ripieni caprese semplici e freschi sono una svolta sui sapori classici. Questo è un antipasto o un contorno perfetto per qualsiasi pasto!',
       image: 'caprese.jpg',
       price: 9.99,
-      recommend: true
+      recommend: false
     },
     {
       name: 'Zucchini Chips ',

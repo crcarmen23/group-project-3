@@ -36,7 +36,7 @@ After providing all required information and confirming your order details, sele
 
 After successfully placing the order, you should receive an order confirmation on the website.
 
-[Link to Deployed Site]()
+[Link to Deployed Site](https://la-dolce-vita-257152a676c7.herokuapp.com/)
 
 
 ![screenshot]()
