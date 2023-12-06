@@ -32,11 +32,16 @@ body {
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
   font-family: 'Karla', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
+}
+
+#root {
+  height: 100vh;
 }
 
 h1,
@@ -148,6 +153,14 @@ input:focus {
 }
 
 .container {
+  width: 85%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+}
+
+.menu-container {
   width: 85%;
   max-width: 1200px;
   margin-left: auto;

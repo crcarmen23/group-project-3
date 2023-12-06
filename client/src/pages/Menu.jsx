@@ -4,7 +4,7 @@ import Cart from "../components/Cart";
 
 const Menu = () => {
   return (
-    <div className="container">
+    <div className="menu-container">
       <CategoryMenu />
       <MenuList />
       <Cart />
